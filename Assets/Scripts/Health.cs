@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    private int _health;
+    private int _maxHealth = 100;
+
+    void Awake()
     {
-        
+        //Set health to our maximum health value
+        _health = _maxHealth;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void TakeDamage()
     {
-        
+        _health--;
     }
-}
+
+    private void RestoreHealth()
+    {
+        _health++;
+    }
+}  
