@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    [SerializeField] private GameObject enemyPrefab;
-    [SerializeField] private Vector2 spawnRangeHorizontal;
+    [SerializeField] private GameObject[] enemyPrefab;
     [SerializeField] private float spawnRate = 1;
     [SerializeField] private float spawnHeight;
     [SerializeField] float leftSideOfScreen;
@@ -29,6 +28,7 @@ public class SpawnManager : MonoBehaviour
     }
     public void SpawnObject()
     {
-        Instantiate(enemyPrefab,Spawnpos(), Quaternion.identity);
+        int rnd = Random.Range(0, enemyPrefab.Length);
+        Instantiate(enemyPrefab[rnd], Spawnpos(), Quaternion.identity);
     }
 }

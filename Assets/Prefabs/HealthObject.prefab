@@ -61,11 +61,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8964790557067003802, guid: 98f29104816d94e75b5857556e2d0db0, type: 3}
       propertyPath: doesDamage
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8964790557067003803, guid: 98f29104816d94e75b5857556e2d0db0, type: 3}
       propertyPath: m_Name
-      value: FallingObject
+      value: FallingObject Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98f29104816d94e75b5857556e2d0db0, type: 3}

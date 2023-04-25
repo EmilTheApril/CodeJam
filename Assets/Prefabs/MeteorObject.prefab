@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8964790557067003802}
   - component: {fileID: 907640300261739803}
   m_Layer: 0
-  m_Name: FallingObject
+  m_Name: MeteorObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -122,7 +122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 100
   hitValue: 0
-  doesDamage: 0
+  doesDamage: 1
 --- !u!58 &907640300261739803
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -21,6 +21,7 @@ public class Health : MonoBehaviour
     public void TakeDamage()
     {
         _health--;
+        SoundManager.instance.PlaySound(Sounds.TakeDamage);
     }
 
     /// <summary>
@@ -31,6 +32,7 @@ public class Health : MonoBehaviour
     public void TakeDamage(int damage)
     {
         _health -= damage;
+        SoundManager.instance.PlaySound(Sounds.TakeDamage);
     }
 
     /// <summary>
@@ -41,6 +43,7 @@ public class Health : MonoBehaviour
     public void RestoreHealth()
     {
         _health++;
+        SoundManager.instance.PlaySound(Sounds.Heal);
     }
 
     /// <summary>
@@ -51,5 +54,6 @@ public class Health : MonoBehaviour
     public void RestoreHealth(int healing)
     {
         _health += healing;
+        SoundManager.instance.PlaySound(Sounds.Heal);
     }
 }

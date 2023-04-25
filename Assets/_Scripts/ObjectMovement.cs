@@ -49,12 +49,10 @@ public class ObjectMovement : MonoBehaviour
         if (doesDamage)
         {
             health.TakeDamage(hitValue);
-            SoundManager.instance.PlaySound(Sounds.TakeDamage);
         }
         else
         {
             health.RestoreHealth(hitValue);
-            SoundManager.instance.PlaySound(Sounds.Heal);
         }
     }
 
