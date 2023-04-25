@@ -4,16 +4,82 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public enum Sounds
-{
+{   
+    Spawn,
     Shoot,
     Heal,
-    TakeDamage
+    TakeDamage,
+    Death
 }
 
 public class SoundManager : MonoBehaviour
 {
+    public static SoundManager instance;
     public AudioClip[] Clips;
-    public Slider MasterVol;
-    public Slider MusicVol;
-    public Slider EffectsVol;
+    [SerializeField] private AudioSource MusicSource, EffectsSource;
+    
+    private void awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(this);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public void SliderIndexer(int index, float value)
+    {
+        switch (index) {
+            case 0:
+                ChangeMasterVolume(value);
+                break;
+            case 1:
+                ChangeMusicVolume(value);
+                break;
+            case 2:
+                ChangeEffectsVolume(value);
+                break;
+        }
+    }
+
+    public void PlaySound(Sounds sound)
+    {
+        switch(sound) {
+            case Sounds.Spawn:
+                EffectsSource.PlayOneShot(Clips[0]);
+                break;
+            case Sounds.Shoot:
+                EffectsSource.PlayOneShot(Clips[1]);
+                break;
+            case Sounds.Heal:
+                EffectsSource.PlayOneShot(Clips[2]);
+                break;
+            case Sounds.TakeDamage:
+                EffectsSource.PlayOneShot(Clips[3]);
+                break;
+            case Sounds.Death:
+                EffectsSource.PlayOneShot(Clips[4]);
+                break;
+        }
+    }
+
+    public void ChangeMasterVolume(float value)
+    {
+        AudioListener.volume = value;
+    }
+
+    public void ChangeMusicVolume(float value)
+    {
+        MusicSource.volume = value;
+    }
+
+    public void ChangeEffectsVolume(float value)
+    {
+        EffectsSource.volume = value;
+    }
+
 }

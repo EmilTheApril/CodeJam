@@ -9,11 +9,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
-        Input.gyro.enabled = true;
-    }
-
-    private void Start()
-    {
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -24,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
 
     public float GetPhoneRotation()
     {
-        return Input.gyro.attitude.y;
+        return Input.acceleration.x;
     }
 
     public void Movement(float input)
