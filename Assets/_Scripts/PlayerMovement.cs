@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public Rigidbody2D rd;
+    private Rigidbody2D rb;
     [SerializeField] private float speed;
 
     private void Awake()
@@ -12,18 +12,23 @@ public class PlayerMovement : MonoBehaviour
         Input.gyro.enabled = true;
     }
 
-    private void Update()
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
+
+    private void FixedUpdate()
     {
         Movement(GetPhoneRotation());
     }
 
     public float GetPhoneRotation()
     {
-        return Input.gyro.attitude.x;
+        return Input.gyro.attitude.y;
     }
 
     public void Movement(float input)
     {
-        rd.velocity = new Vector2(speed * input, 0);
+        rb.velocity = new Vector2(speed * input, 0);
     }
 }
