@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-
-    private int _health, _maxHealth = 100;
+    [SerializeField] private int _health, _maxHealth = 1;
 
     private void Awake()
     {
@@ -22,6 +21,7 @@ public class Health : MonoBehaviour
     {
         _health--;
         SoundManager.instance.PlaySound(Sounds.TakeDamage);
+        CheckIfDead();
     }
 
     /// <summary>
@@ -33,6 +33,7 @@ public class Health : MonoBehaviour
     {
         _health -= damage;
         SoundManager.instance.PlaySound(Sounds.TakeDamage);
+        CheckIfDead();
     }
 
     /// <summary>
@@ -42,7 +43,10 @@ public class Health : MonoBehaviour
     /// <returns></returns>
     public void RestoreHealth()
     {
-        _health++;
+        if (_health < _maxHealth)
+        {
+            _health++;
+        }
         SoundManager.instance.PlaySound(Sounds.Heal);
     }
 
@@ -53,7 +57,19 @@ public class Health : MonoBehaviour
     /// <returns></returns>
     public void RestoreHealth(int healing)
     {
-        _health += healing;
+        if (_health + healing > _maxHealth)
+        {
+            _health = _maxHealth;
+        } else _health += healing;
         SoundManager.instance.PlaySound(Sounds.Heal);
+    }
+
+    public void CheckIfDead()
+    {
+        if (_health <= 0)
+        {
+            GameManager.instance.GameEnded();
+            _health = 0;
+        }
     }
 }

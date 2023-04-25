@@ -57,7 +57,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 665e9fe43cec8f642b5e97aad346204d, type: 3}
     - target: {fileID: 8964790557067003802, guid: 98f29104816d94e75b5857556e2d0db0, type: 3}
       propertyPath: hitValue
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8964790557067003802, guid: 98f29104816d94e75b5857556e2d0db0, type: 3}
       propertyPath: doesDamage
@@ -65,7 +65,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8964790557067003803, guid: 98f29104816d94e75b5857556e2d0db0, type: 3}
       propertyPath: m_Name
-      value: FallingObject Variant
+      value: HealthObject
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98f29104816d94e75b5857556e2d0db0, type: 3}
