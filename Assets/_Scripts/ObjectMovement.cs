@@ -9,6 +9,11 @@ public class ObjectMovement : MonoBehaviour
     [SerializeField] int hitValue;
     [SerializeField] bool doesDamage;
 
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
+
     private void FixedUpdate()
     {
         Movement();
@@ -19,7 +24,7 @@ public class ObjectMovement : MonoBehaviour
     /// </summary>
     private void Movement()
     {
-        rb.velocity = Vector2.down * speed;
+        rb.velocity = Vector2.down * speed * Time.deltaTime;
     }
 
     /// <summary>
