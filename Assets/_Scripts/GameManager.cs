@@ -60,6 +60,7 @@ public class GameManager : MonoBehaviour
     public void MainMenuButton()
     {
         GameEnded();
+        DestroyAllObject();
         mainMenuPanel.SetActive(true);
         gameoverPanel.SetActive(false);
         CloseSettings();
@@ -122,6 +123,16 @@ public class GameManager : MonoBehaviour
         {
             gamePanel.SetActive(true);
             SpawnManager.instance.StartSpawning();
+        }
+    }
+
+    public void DestroyAllObject()
+    {
+        GameObject[] objects = GameObject.FindGameObjectsWithTag("Object");
+
+        foreach (GameObject obj in objects)
+        {
+            Destroy(obj);
         }
     }
 }
