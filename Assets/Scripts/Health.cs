@@ -14,13 +14,23 @@ public class Health : MonoBehaviour
         _health = _maxHealth;
     }
 
-    private void TakeDamage()
+    public void TakeDamage()
     {
         _health--;
     }
 
-    private void RestoreHealth()
+    public void TakeDamage(int damage)
+    {
+        _health -= damage;
+    }
+
+    public void RestoreHealth()
     {
         _health++;
+    }
+    
+    public void RestoreHealth(int healing)
+    {
+        _health += healing;
     }
 }  
