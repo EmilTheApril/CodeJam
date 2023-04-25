@@ -11,5 +11,6 @@ public class VolumeSlider : MonoBehaviour
     void Start()
     {
         _slider.onValueChanged.AddListener(val => SoundManager.instance.SliderIndexer(index, val));
+        _slider.value = 1;
     }
 }

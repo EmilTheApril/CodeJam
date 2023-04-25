@@ -49,8 +49,13 @@ public class ObjectMovement : MonoBehaviour
         if (doesDamage)
         {
             health.TakeDamage(hitValue);
+            SoundManager.instance.PlaySound(Sounds.TakeDamage);
         }
-        else health.RestoreHealth(hitValue);
+        else
+        {
+            health.RestoreHealth(hitValue);
+            SoundManager.instance.PlaySound(Sounds.Heal);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)

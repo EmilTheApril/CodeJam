@@ -30,6 +30,11 @@ public class SoundManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        
+    }
+
     public void SliderIndexer(int index, float value)
     {
         switch (index) {
