@@ -12,6 +12,7 @@ public class SpawnManager : MonoBehaviour
     private void Start()
     {
         InvokeRepeating("SpawnObject", 0, spawnRate);
+        spawnHeight = Camera.main.orthographicSize;// * 2;
     }
 
     private Vector3 Spawnpos()
