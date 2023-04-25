@@ -24,6 +24,14 @@ public class PlayerMovement : MonoBehaviour
 
     public void Movement(float input)
     {
-        rb.velocity = new Vector2(speed * input, 0);
+        if (transform.position.x > -2 && GetPhoneRotation() < 0)
+        {
+            rb.velocity = new Vector2(speed * input, 0);
+        }
+        else if (transform.position.x < 2 && GetPhoneRotation() > 0)
+        {
+            rb.velocity = new Vector2(speed * input, 0);
+        }
+        else rb.velocity = Vector2.right * 0;
     }
 }
