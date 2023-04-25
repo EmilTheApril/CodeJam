@@ -17,7 +17,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip[] Clips;
     [SerializeField] private AudioSource MusicSource, EffectsSource;
     
-    private void awake()
+    private void Awake()
     {
         if (instance == null)
         {
