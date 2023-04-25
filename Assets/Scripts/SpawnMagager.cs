@@ -5,19 +5,21 @@ using UnityEngine;
 public class SpawnMagager : MonoBehaviour
 {
     public GameObject enemyPrefab;
-    float spawnRate;
-    Vector2 spawnRangeHorizontal;
+    public Vector2 spawnRangeHorizontal;
+    public float spawnRate = 1;
     float spawnHeight;
-    
-    // Start is called before the first frame update
-    void Start()
+
+    private void Start()
     {
-        
+        InvokeRepeating("SpawnObject", 0, spawnRate);
     }
 
-    // Update is called once per frame
-    void Update()
+    private Vector3 Spawnpos()
     {
-        
+        return new Vector3(Random.Range(spawnRangeHorizontal.x,spawnRangeHorizontal.y),spawnHeight,0);
+    }
+    public void SpawnObject()
+    {
+        Instantiate(enemyPrefab,Spawnpos(), Quaternion.identity);
     }
 }
