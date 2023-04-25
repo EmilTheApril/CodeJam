@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class SpawnMagager : MonoBehaviour
 {
-    public GameObject enemyPrefab;
-    public Vector2 spawnRangeHorizontal;
-    public float spawnRate = 1;
-    float spawnHeight;
+    [SerializeField] private GameObject enemyPrefab;
+    [SerializeField] private Vector2 spawnRangeHorizontal;
+    [SerializeField] private float spawnRate = 1;
+    [SerializeField] private float spawnHeight;
 
     private void Start()
     {
