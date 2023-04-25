@@ -58,6 +58,7 @@ public class ObjectMovement : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             PlayerHit(other.gameObject);
+            DestroyObject();
         }
         else
         {

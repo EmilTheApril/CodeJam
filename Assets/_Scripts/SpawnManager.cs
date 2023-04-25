@@ -20,13 +20,12 @@ public class SpawnManager : MonoBehaviour
     private void Start()
     {
         InvokeRepeating("SpawnObject", 0, spawnRate);
-        Debug.Log(leftSideOfScreen + " " + rightSideOfScreen);
-        spawnHeight = Camera.main.orthographicSize;// * 2;
+        spawnHeight = Camera.main.orthographicSize;
     }
 
     private Vector3 Spawnpos()
     {
-        return new Vector3(Random.Range(leftSideOfScreen,rightSideOfScreen),spawnHeight,0);
+        return new Vector3(Random.Range(leftSideOfScreen, rightSideOfScreen), spawnHeight, 0);
     }
     public void SpawnObject()
     {
