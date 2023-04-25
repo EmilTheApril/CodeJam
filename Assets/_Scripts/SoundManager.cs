@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public enum Sounds
 {   
-    Spawn,
     Shoot,
     Heal,
     TakeDamage,
@@ -49,20 +48,17 @@ public class SoundManager : MonoBehaviour
     public void PlaySound(Sounds sound)
     {
         switch(sound) {
-            case Sounds.Spawn:
+            case Sounds.Shoot:
                 EffectsSource.PlayOneShot(Clips[0]);
                 break;
-            case Sounds.Shoot:
+            case Sounds.Heal:
                 EffectsSource.PlayOneShot(Clips[1]);
                 break;
-            case Sounds.Heal:
+            case Sounds.TakeDamage:
                 EffectsSource.PlayOneShot(Clips[2]);
                 break;
-            case Sounds.TakeDamage:
-                EffectsSource.PlayOneShot(Clips[3]);
-                break;
             case Sounds.Death:
-                EffectsSource.PlayOneShot(Clips[4]);
+                EffectsSource.PlayOneShot(Clips[3]);
                 break;
         }
     }
