@@ -1,21 +1,45 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
+using System.Collections;
+using Unity.VisualScripting;
 
 public class PlayerShooter : MonoBehaviour
 {
-    public GameObject laserprefab;
+    public GameObject laserPrefab;
+    public int ammoCapacity = 3; // maximum ammo capacity
+    public float reloadTime = 5f; // time it takes to reload ammo in seconds
+    public float bulletLifetime = 5f; // lifetime of bullet in seconds
+    private int currentAmmo; // current ammo count
+    private bool isReloading = false; // flag for reloading
+
+    private void Start()
+    {
+        currentAmmo = ammoCapacity;
+    }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !isReloading && currentAmmo > 0)
         {
             Shoot();
+            currentAmmo--;
+            if (currentAmmo == 0)
+            {
+                StartCoroutine(Reload());
+            }
         }
     }
+
     private void Shoot()
     {
-        Instantiate(this.laserprefab, this.transform.position, Quaternion.identity);
+        GameObject bullet = Instantiate(laserPrefab, transform.position, Quaternion.identity);
+        Destroy(bullet, bulletLifetime);
+    }
+
+    private IEnumerator Reload()
+    {
+        isReloading = true;
+        yield return new WaitForSeconds(reloadTime);
+        currentAmmo = ammoCapacity;
+        isReloading = false;
     }
 }

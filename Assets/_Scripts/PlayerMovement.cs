@@ -19,11 +19,25 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         Movement(GetPhoneRotation());
+        RotatePlayer(GetPhoneRotation());
     }
 
     public float GetPhoneRotation()
     {
         return Input.acceleration.x;
+    }
+
+    public void RotatePlayer(float input)
+    {
+        if (!GameManager.instance.GetGameStatus()) return;
+        if (input > 0)
+        {
+            transform.rotation = Quaternion.Lerp(transform.rotation, new Quaternion(0, 0, -35, 100), 0.0001f);
+        }
+        else if(input < 0)
+        {
+            transform.rotation = Quaternion.Lerp(transform.rotation, new Quaternion(0, 0, 35, 100), 0.0001f);
+        }
     }
 
     public void Movement(float input)
