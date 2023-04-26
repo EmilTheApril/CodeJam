@@ -3885,9 +3885,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e816cd2f52f26f4cb672a91f454df6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab:
-  - {fileID: 8964790557067003803, guid: 98f29104816d94e75b5857556e2d0db0, type: 3}
-  - {fileID: 5652656315377292519, guid: 9b7290492c4d9be4b930d89d30f7bc72, type: 3}
+  enemyPrefab: {fileID: 8964790557067003803, guid: 98f29104816d94e75b5857556e2d0db0, type: 3}
+  healthPickup: {fileID: 5652656315377292519, guid: 9b7290492c4d9be4b930d89d30f7bc72, type: 3}
   spawnRate: 1
   spawnHeight: 6
   leftSideOfScreen: 0
