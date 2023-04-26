@@ -45,6 +45,11 @@ public class GameManager : MonoBehaviour
         Game();
     }
 
+    public bool GetGameStatus()
+    {
+        return gameStarted;
+    }
+
     public void OpenSettings()
     {
         settingsPanel.SetActive(true);
@@ -107,9 +112,9 @@ public class GameManager : MonoBehaviour
     {
         if (!initiateGame) return;
 
-        if (player.transform.position != startPos)
+        if (player.transform.position != startPos && !gameStarted)
         {
-            player.transform.position = Vector3.Lerp(player.transform.position, startPos, 0.01f);
+            player.transform.position = Vector3.Lerp(player.transform.position, startPos, 0.02f);
 
             if (player.transform.position.y > startPos.y - 0.01f) player.transform.position = startPos;
         } 
