@@ -6,7 +6,8 @@ public class SpawnManager : MonoBehaviour
 {
     public static SpawnManager instance;
 
-    [SerializeField] private GameObject[] enemyPrefab;
+    [SerializeField] private GameObject enemyPrefab;
+    [SerializeField] private GameObject healthPickup;
     [SerializeField] private float spawnRate = 1;
     [SerializeField] private float spawnHeight;
     [SerializeField] float leftSideOfScreen;
@@ -61,7 +62,16 @@ public class SpawnManager : MonoBehaviour
     }
     public void SpawnObject()
     {
-        int rnd = Random.Range(0, enemyPrefab.Length);
-        Instantiate(enemyPrefab[rnd], Spawnpos(), Quaternion.identity);
+        int numSpawn = Random.Range(0, 101);
+        if (numSpawn >= 95)
+        {
+            //int rnd = Random.Range(0, enemyPrefab.Length);
+            Instantiate(healthPickup, Spawnpos(), Quaternion.identity);
+        }
+        else
+        {
+           // int rnd = Random.Range(0, enemyPrefab.Length);
+            Instantiate(enemyPrefab, Spawnpos(), Quaternion.identity);
+        }
     }
 }
