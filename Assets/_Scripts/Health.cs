@@ -1,15 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
     [SerializeField] private int _health, _maxHealth = 1;
+    [SerializeField] Image healthbar;
 
     private void Awake()
     {
         //Set health to our maximum health value
         _health = _maxHealth;
+        UpdateUI();
     }
 
     /// <summary>
@@ -20,6 +23,7 @@ public class Health : MonoBehaviour
     public void TakeDamage()
     {
         _health--;
+        UpdateUI();
         SoundManager.instance.PlaySound(Sounds.TakeDamage);
         CheckIfDead();
     }
@@ -32,6 +36,7 @@ public class Health : MonoBehaviour
     public void TakeDamage(int damage)
     {
         _health -= damage;
+        UpdateUI();
         SoundManager.instance.PlaySound(Sounds.TakeDamage);
         CheckIfDead();
     }
@@ -47,6 +52,7 @@ public class Health : MonoBehaviour
         {
             _health++;
         }
+        UpdateUI();
         SoundManager.instance.PlaySound(Sounds.Heal);
     }
 
@@ -61,7 +67,13 @@ public class Health : MonoBehaviour
         {
             _health = _maxHealth;
         } else _health += healing;
+        UpdateUI();
         SoundManager.instance.PlaySound(Sounds.Heal);
+    }
+
+    public void UpdateUI()
+    {
+        healthbar.fillAmount = (float)_health / _maxHealth;
     }
 
     public void CheckIfDead()
