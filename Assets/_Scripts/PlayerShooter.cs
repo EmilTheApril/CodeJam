@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerShooter : MonoBehaviour
 {
-    public PlayerShooter laserprefab;
+    public GameObject laserprefab;
 
     private void Update()
     {
