@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5017068637670963184}
   - component: {fileID: 4287874966107264278}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 579118629655329980}
   - component: {fileID: 6695248291557072255}
   - component: {fileID: 7353449572198087757}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: LaserShots
   m_TagString: Untagged
   m_Icon: {fileID: 0}

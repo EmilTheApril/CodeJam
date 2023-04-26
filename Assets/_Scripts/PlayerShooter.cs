@@ -18,7 +18,7 @@ public class PlayerShooter : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0) && !isReloading && currentAmmo > 0)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !isReloading && currentAmmo > 0 && GameManager.instance.GetGameStatus())
         {
             Shoot();
             currentAmmo--;

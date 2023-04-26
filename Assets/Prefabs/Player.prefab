@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 478903175}
   - component: {fileID: 478903176}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1022430490}
   - component: {fileID: 1022430489}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -210,7 +210,7 @@ GameObject:
   - component: {fileID: 8260958877009820328}
   - component: {fileID: 9109127711982921523}
   - component: {fileID: 6386530482920073235}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -375,4 +375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3654a617a0398c84a92f9b556bcf238e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laserprefab: {fileID: 1070553059433966738, guid: f2f7c9cd1fd17274f8053ad4f46bb529, type: 3}
+  laserPrefab: {fileID: 1070553059433966738, guid: f2f7c9cd1fd17274f8053ad4f46bb529, type: 3}
+  ammoCapacity: 3
+  reloadTime: 5
+  bulletLifetime: 5
