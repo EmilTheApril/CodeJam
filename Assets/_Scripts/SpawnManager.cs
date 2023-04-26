@@ -65,13 +65,20 @@ public class SpawnManager : MonoBehaviour
         int numSpawn = Random.Range(0, 101);
         if (numSpawn >= 95)
         {
-            //int rnd = Random.Range(0, enemyPrefab.Length);
             Instantiate(healthPickup, Spawnpos(), Quaternion.identity);
         }
         else
         {
-           // int rnd = Random.Range(0, enemyPrefab.Length);
             Instantiate(enemyPrefab, Spawnpos(), Quaternion.identity);
         }
     }
+    public float GetSpawnRate()
+    {
+        return spawnRate;
+    }
+    public void SetSpawnRate(float vSpawnRate)
+    {
+        spawnRate = vSpawnRate;
+    }
+
 }
