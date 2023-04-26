@@ -5,13 +5,28 @@ using UnityEngine;
 public class ObjectMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
-    [SerializeField] float speed;
+    [SerializeField] Vector2 speedMinMax;
+    private float speed;
+    [SerializeField] bool isHealth;
+
     [SerializeField] int hitValue;
     [SerializeField] bool doesDamage;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+    }
+
+    private void Start()
+    {
+        float rndValue = Random.Range(speedMinMax.x, speedMinMax.y);
+        speed = rndValue;
+        if (!isHealth)
+        {
+            transform.localScale = (Vector3.one / 2) * (100 / rndValue);
+            rb.AddTorque(rndValue);
+        }
+        
     }
 
     private void FixedUpdate()
@@ -63,7 +78,7 @@ public class ObjectMovement : MonoBehaviour
             PlayerHit(other.gameObject);
             DestroyObject();
         }
-        else
+        else if(!other.CompareTag("Object"))
         {
             DestroyObject();
         }
