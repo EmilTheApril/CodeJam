@@ -10,9 +10,7 @@ public class Health : MonoBehaviour
 
     private void Awake()
     {
-        //Set health to our maximum health value
-        _health = _maxHealth;
-        UpdateUI();
+        ResetHealth();
     }
 
     /// <summary>
@@ -71,12 +69,23 @@ public class Health : MonoBehaviour
         SoundManager.instance.PlaySound(Sounds.Heal);
     }
 
-    public void UpdateUI()
+    /// <summary>
+    ///  Resets the player health and set it to max health, this can be used when reseting game.
+    /// </summary>
+    /// <param name="ResetHealth">Resets the player health and set it to max health.</param>
+    /// <returns></returns>
+    public void ResetHealth()
+    {
+        _health = _maxHealth;
+        UpdateUI();
+    }
+
+    private void UpdateUI()
     {
         healthbar.fillAmount = (float)_health / _maxHealth;
     }
 
-    public void CheckIfDead()
+    private void CheckIfDead()
     {
         if (_health <= 0)
         {

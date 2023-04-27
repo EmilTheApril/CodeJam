@@ -81,6 +81,7 @@ public class GameManager : MonoBehaviour
         initiateGame = true;
         gameoverPanel.SetActive(false);
         mainMenuPanel.SetActive(false);
+        Time.timeScale = 1;
     }
 
     public void GameEnded()
