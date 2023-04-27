@@ -32,11 +32,11 @@ public class PlayerMovement : MonoBehaviour
         if (!GameManager.instance.GetGameStatus()) return;
         if (input > 0)
         {
-            transform.rotation = Quaternion.Lerp(transform.rotation, new Quaternion(0, 0, -35, 100), 0.0001f);
+            transform.rotation = Quaternion.Lerp(transform.rotation, new Quaternion(0, 0, -50 * input, 100), Time.deltaTime * rb.velocity.x);
         }
         else if(input < 0)
         {
-            transform.rotation = Quaternion.Lerp(transform.rotation, new Quaternion(0, 0, 35, 100), 0.0001f);
+            transform.rotation = Quaternion.Lerp(transform.rotation, new Quaternion(0, 0, 50 * -input, 100), Time.deltaTime * -rb.velocity.x);
         }
     }
 
