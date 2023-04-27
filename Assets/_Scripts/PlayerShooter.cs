@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using Unity.VisualScripting;
+using TMPro;
 
 public class PlayerShooter : MonoBehaviour
 {
@@ -9,7 +10,9 @@ public class PlayerShooter : MonoBehaviour
     public float reloadTime = 5f; // time it takes to reload ammo in seconds
     public float bulletLifetime = 5f; // lifetime of bullet in seconds
     private int currentAmmo; // current ammo count
+    public int CurrentAmmo {get {return currentAmmo;}}
     private bool isReloading = false; // flag for reloading
+    
 
     private void Start()
     {
