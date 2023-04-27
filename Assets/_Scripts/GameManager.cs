@@ -81,7 +81,6 @@ public class GameManager : MonoBehaviour
         initiateGame = true;
         gameoverPanel.SetActive(false);
         mainMenuPanel.SetActive(false);
-        Time.timeScale = 1;
     }
 
     public void GameEnded()
@@ -117,9 +116,11 @@ public class GameManager : MonoBehaviour
         {
             player.transform.position = Vector3.Lerp(player.transform.position, startPos, 0.02f);
 
-            if (player.transform.position.y > startPos.y - 0.01f) player.transform.position = startPos;
-        } 
-        else gameStarted = true;
+            if (player.transform.position.y > startPos.y - 0.01f)
+            {
+                gameStarted = true;
+            }
+        }
 
         if (!gameStarted) return;
         score += Time.deltaTime;
