@@ -16,3 +16,7 @@ public class BulletScript : MonoBehaviour
         Destroy(this.gameObject);
     }
 }
+
+public class Class2
+{
+}

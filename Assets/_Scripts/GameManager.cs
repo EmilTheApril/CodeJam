@@ -141,3 +141,11 @@ public class GameManager : MonoBehaviour
         }
     }
 }
+
+public class Class1
+{
+}
+
+internal class GameManager1
+{
+}
