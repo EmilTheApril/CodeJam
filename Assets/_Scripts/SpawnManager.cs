@@ -74,7 +74,7 @@ public class SpawnManager : MonoBehaviour
         {
             Instantiate(enemyPrefab, Spawnpos(), Quaternion.identity);
         }
-    }
+    }   
     public float GetSpawnRate()
     {
         return spawnRate;
